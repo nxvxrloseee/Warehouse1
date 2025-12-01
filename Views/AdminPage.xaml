@@ -1,0 +1,67 @@
+﻿<Page x:Class="Warehouse1.Views.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Warehouse1.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:Warehouse1.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AdminViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="WindowBackground" Color="White"/>
+        <SolidColorBrush x:Key="TextColor" Color="Black"/>
+    </Page.Resources>
+
+    <Grid>
+        <TabControl Background="Transparent">
+            <TabItem Header="Импорт">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Content="Импорт Excel" Command="{Binding ImportCommand}" Padding="20, 0" FontSize="16"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Управление пользователями">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <DataGrid Grid.Column="0" ItemsSource="{Binding Users}" SelectedItem="{Binding SelectedUser}" AutoGenerateColumns="False" Margin="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                            <DataGridTextColumn Header="Login" Binding="{Binding Username}" Width="*"/>
+                            <DataGridCheckBoxColumn Header="Active" Binding="{Binding IsActive}" Width="50"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Grid.Column="1" Margin="10">
+                        <TextBlock Text="Логин:" Foreground="{DynamicResource TextColor}"/>
+                        <TextBox Text="{Binding InputUsername}" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Пароль (пусто = не менять):" Foreground="{DynamicResource TextColor}"/>
+                        <TextBox Text="{Binding InputPassword}" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="Роль:" Foreground="{DynamicResource TextColor}"/>
+                        <ComboBox ItemsSource="{Binding Roles}" SelectedItem="{Binding InputRole}" Margin="0,0,0,10"/>
+
+                        <Button Content="Создать нового" Command="{Binding AddUserCommand}" Margin="0,5"/>
+                        <Button Content="Сохранить изменения" Command="{Binding EditUserCommand}" Margin="0,5"/>
+                        <Button Content="Удалить выбранного" Command="{Binding DeleteUserCommand}" Margin="0,5" Background="#FFCCCC"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Настройки">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Content="Сменить тему (Светлая/Темная)" Command="{Binding ToggleThemeCommand}" Padding="0" Margin="10"/>
+                    <Button Content="Установить шрифт JetBrains Mono" Command="{Binding SetFontCommand}" Padding="0" Margin="10"/>
+                    <TextBlock Text="Для шрифта убедитесь, что файл .ttf лежит в папке Resources/Fonts и BuildAction=Resource" 
+                           FontSize="10" Foreground="Gray" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

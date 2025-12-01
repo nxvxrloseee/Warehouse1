@@ -1,0 +1,34 @@
+﻿<Page x:Class="Warehouse1.Views.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Warehouse1.Views"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodels="clr-namespace:Warehouse1.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:LoginViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginPage">
+
+    <Grid>
+        <materialDesign:Card Padding="32" Margin="20" UniformCornerRadius="6">
+            <StackPanel VerticalAlignment="Center">
+
+                <TextBlock Text="ВХОД В СИСТЕМУ"
+                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                           HorizontalAlignment="Center"/>
+
+                <!-- ДАЁМ ИМЯ -->
+                <TextBox x:Name="UsernameBox"
+                         materialDesign:HintAssist.Hint="Имя пользователя"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                <!-- ДАЁМ ИМЯ -->
+                <PasswordBox x:Name="PasswordBox"
+                             materialDesign:HintAssist.Hint="Пароль"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+
+                <Button Content="Войти" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=PasswordBoxName}" />
+            </StackPanel>
+        </materialDesign:Card>
+    </Grid>
+</Page>
