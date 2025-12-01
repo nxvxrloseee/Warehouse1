@@ -5,14 +5,7 @@
              xmlns:local="clr-namespace:Warehouse1">
 
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Light" 
-                                             PrimaryColor="DeepPurple" 
-                                             SecondaryColor="Lime" />
-
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+        <SolidColorBrush x:Key="WindowBackground" Color="White"/>
+        <SolidColorBrush x:Key="TextColor" Color="Black"/>
     </Application.Resources>
 </Application>

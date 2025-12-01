@@ -27,7 +27,7 @@
                              materialDesign:HintAssist.Hint="Пароль"
                              Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
 
-                <Button Content="Войти" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=PasswordBoxName}" />
+                <Button Content="Войти" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=PasswordBox}" />
             </StackPanel>
         </materialDesign:Card>
     </Grid>

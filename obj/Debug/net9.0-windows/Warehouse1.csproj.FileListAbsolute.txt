@@ -164,3 +164,4 @@ C:\Users\nxvxrlose\source\repos\Warehouse1\obj\Debug\net9.0-windows\refint\Wareh
 C:\Users\nxvxrlose\source\repos\Warehouse1\obj\Debug\net9.0-windows\Warehouse1.pdb
 C:\Users\nxvxrlose\source\repos\Warehouse1\obj\Debug\net9.0-windows\Warehouse1.genruntimeconfig.cache
 C:\Users\nxvxrlose\source\repos\Warehouse1\obj\Debug\net9.0-windows\ref\Warehouse1.dll
+C:\Users\nxvxrlose\source\repos\Warehouse1\obj\Debug\net9.0-windows\Warehouse1.sourcelink.json

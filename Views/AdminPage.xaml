@@ -8,14 +8,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdminPage">
-
-    <Page.Resources>
-        <SolidColorBrush x:Key="WindowBackground" Color="White"/>
-        <SolidColorBrush x:Key="TextColor" Color="Black"/>
-    </Page.Resources>
+    
+    
 
     <Grid>
-        <TabControl Background="Transparent">
+        <TabControl Background="{DynamicResource WindowBackground}">
             <TabItem Header="Импорт">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button Content="Импорт Excel" Command="{Binding ImportCommand}" Padding="20, 0" FontSize="16"/>

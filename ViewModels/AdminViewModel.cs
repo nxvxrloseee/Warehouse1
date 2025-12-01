@@ -177,7 +177,9 @@ namespace Warehouse1.ViewModels
 
         private void ExecuteSetFont(object? p)
         {
-            Application.Current.MainWindow.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), ".Resources/#Jetbrains");
+            Application.Current.MainWindow.FontFamily =
+                new FontFamily(new Uri("pack://application:,,,/"), "./Resources/JetBrains/#JetBrains Mono");
+
             MessageBox.Show("Шрифт был изменён");
         }
     }

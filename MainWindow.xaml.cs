@@ -20,7 +20,6 @@ namespace Warehouse1
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new LoginPage());
         }
     }
 }
