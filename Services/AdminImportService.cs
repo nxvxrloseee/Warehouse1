@@ -43,7 +43,7 @@ namespace Warehouse1.Services
             await _context.Database.ExecuteSqlRawAsync(sb.ToString());
 
             await _context.Database.ExecuteSqlInterpolatedAsync(
-                $"EXEC ext.usp_RegisterExternalTable @SchemaName='dbo', @TableName={tableName}, @DisplayName={tableName}, @CreatedByUserId={userId}, HasHeaderRow=1");
+                $"EXEC ext.usp_RegisterExternalTable @SchemaName='dbo', @TableName={tableName}, @DisplayName={tableName}, @CreatedByUserId={userId}, @HasHeaderRow=1");
 
             var dt = new DataTable();
             foreach (var col in columns) dt.Columns.Add(col);

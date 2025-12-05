@@ -38,7 +38,8 @@ namespace Warehouse1.Services
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.Add(new SqlParameter("@ExternalTableId", externalTableId));
-            cmd.Parameters.Add(new SqlParameter("@SearchText", (object?)searchText ?? DBNull.Value));
+            var searchPattern = string.IsNullOrEmpty(searchText) ? null : $"%{searchText}%";
+            cmd.Parameters.Add(new SqlParameter("@SearchText", (object?)searchPattern ?? DBNull.Value));
             cmd.Parameters.Add(new SqlParameter("@PageSize", 500));
 
             using var reader = await cmd.ExecuteReaderAsync();
