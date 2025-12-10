@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using ClosedXML.Excel;
 using Microsoft.Data.SqlClient;
-using Warehouse1.Data;
-using ClosedXML.Excel;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
+using Warehouse1.Data;
 
 namespace Warehouse1.Services
 {
@@ -52,7 +47,7 @@ namespace Warehouse1.Services
             {
                 var dataRow = dt.NewRow();
                 int i = 0;
-                foreach (var cell in row.Cells(1, columns.Count)) 
+                foreach (var cell in row.Cells(1, columns.Count))
                 {
                     dataRow[i] = cell.GetString();
                     i++;

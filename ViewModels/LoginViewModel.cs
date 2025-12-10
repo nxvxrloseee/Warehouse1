@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using Warehouse1.Models;
 using Warehouse1.Services;
 using Warehouse1.ViewModels.Base;
 

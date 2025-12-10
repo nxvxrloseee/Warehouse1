@@ -27,10 +27,10 @@ namespace Warehouse1.ViewModels
             ExportCsvCommand = new RelayCommand(ExecuteExport);
         }
 
-        public ObservableCollection<ExternalTable> Warehouses { get; } = new();
+        public ObservableCollection<ExternalTable1> Warehouses { get; } = new();
 
-        private ExternalTable? _selectedWarehouse;
-        public ExternalTable? SelectedWarehouse
+        private ExternalTable1? _selectedWarehouse;
+        public ExternalTable1? SelectedWarehouse
         {
             get => _selectedWarehouse;
             set => Set(ref _selectedWarehouse, value);

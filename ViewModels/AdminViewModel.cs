@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using Warehouse1.Services;
-using Warehouse1.ViewModels.Base;
-using Warehouse1.Session;
-using System.Collections.ObjectModel;
-using Warehouse1.Models;
-using System.Windows.Media.Animation;
 using System.Windows.Media;
+using Warehouse1.Models;
+using Warehouse1.Services;
+using Warehouse1.Session;
+using Warehouse1.ViewModels.Base;
 
 namespace Warehouse1.ViewModels
 {
@@ -150,7 +144,7 @@ namespace Warehouse1.ViewModels
                     await _importService.ImportExcelTableAsync(openFileDialog.FileName, tableName, currentUserId);
                     MessageBox.Show("Таблица успешно импортирована!");
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     MessageBox.Show($"Ошибка импорта: {ex.Message}");
                 }
@@ -165,7 +159,7 @@ namespace Warehouse1.ViewModels
 
             if (_isDarkTheme)
             {
-                app.Resources["WindowBackground"] = new SolidColorBrush(Color.FromRgb(30,30, 30));
+                app.Resources["WindowBackground"] = new SolidColorBrush(Color.FromRgb(30, 30, 30));
                 app.Resources["TextColor"] = new SolidColorBrush(Colors.White);
             }
             else

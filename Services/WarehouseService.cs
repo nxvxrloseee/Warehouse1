@@ -1,13 +1,8 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Warehouse1.Data;
 using Warehouse1.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
 
 
 namespace Warehouse1.Services
@@ -16,17 +11,17 @@ namespace Warehouse1.Services
     {
         private readonly AppDbContext _context;
 
-        public WarehouseService(AppDbContext context    )
+        public WarehouseService(AppDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<ExternalTable>> GetVirtualWarehousesAsync()
+        public async Task<List<ExternalTable1>> GetVirtualWarehousesAsync()
         {
-            return await _context.ExternalTables.AsNoTracking().ToListAsync();
+            return await _context.ExternalTables1.AsNoTracking().ToListAsync();
         }
 
-        public async Task<DataTable> SearchProductAsync(int externalTableId, string? searchText) 
+        public async Task<DataTable> SearchProductAsync(int externalTableId, string? searchText)
         {
             var dt = new DataTable();
             var connection = _context.Database.GetDbConnection();

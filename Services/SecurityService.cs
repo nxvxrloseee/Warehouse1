@@ -1,12 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Warehouse1.Data;
 using Warehouse1.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Warehouse1.Services
 {

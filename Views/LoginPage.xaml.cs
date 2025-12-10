@@ -1,8 +1,4 @@
-﻿using System.Windows;
-using System.Linq;
-using System.Windows.Controls;
-using Warehouse1.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using System.Windows.Controls;
 
 namespace Warehouse1.Views
 {
