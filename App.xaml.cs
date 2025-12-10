@@ -49,7 +49,6 @@ namespace Warehouse1
             services.AddSingleton<SecurityService>();
             services.AddTransient<WarehouseService>();
             services.AddTransient<AdminImportService>();
-            services.AddTransient<ManagerService>();
             services.AddTransient<UserService>();
             services.AddSingleton<UserSession>();
 
