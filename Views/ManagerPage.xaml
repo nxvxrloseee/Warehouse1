@@ -39,10 +39,5 @@
                   IsReadOnly="True"
                   HeadersVisibility="All"
                   Margin="0,8,0,8"/>
-
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-            <Button Command="{Binding TrackPriceCommand}" Content="Зафиксировать цену" Margin="0,0,10,0"/>
-            <Button Command="{Binding ExportCsvCommand}" Content="Экспорт статистики (CSV)"/>
-        </StackPanel>
     </Grid>
 </Page>

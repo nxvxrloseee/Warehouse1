@@ -12,19 +12,15 @@ namespace Warehouse1.ViewModels
     public class ManagerViewModel : ViewModelsBase
     {
         private readonly WarehouseService _warehouseService;
-        private readonly ManagerService _managerService;
         private readonly UserSession _session;
         public int currentUserId => _session.CurrentUserId;
 
-        public ManagerViewModel(WarehouseService warehouseService, ManagerService managerService, UserSession currentUserId)
+        public ManagerViewModel(WarehouseService warehouseService, UserSession currentUserId)
         {
             _warehouseService = warehouseService;
-            _managerService = managerService;
             _session = currentUserId;
 
             SearchCommand = new RelayCommand(ExecuteSearch);
-            TrackPriceCommand = new RelayCommand(ExecuteTrackPrice);
-            ExportCsvCommand = new RelayCommand(ExecuteExport);
         }
 
         public ObservableCollection<ExternalTable1> Warehouses { get; } = new();
@@ -80,29 +76,6 @@ namespace Warehouse1.ViewModels
             if (SelectedWarehouse == null) return;
             var dt = await _warehouseService.SearchProductAsync(SelectedWarehouse.Id, SearchText);
             SearchResults = dt.DefaultView;
-        }
-
-        private async void ExecuteTrackPrice(object? p)
-        {
-            if (SelectedRow == null) return;
-
-            // Пытаемся найти колонку с именем похожим на "Name" или первую колонку
-            var productName = SelectedRow[0].ToString() ?? "Unknown";
-
-            // Заглушка цены (в реальности нужно парсить колонку Price, если она есть)
-            decimal price = new Random().Next(100, 5000);
-
-            await _managerService.TrackPriceAsync(productName, price, SelectedWarehouse?.Id);
-            MessageBox.Show($"Цена {price} записана для {productName}");
-        }
-
-        private async void ExecuteExport(object? p)
-        {
-            // Пример экспорта всей истории
-            // В реальном приложении здесь можно выбрать товар
-            var data = await _managerService.GetPriceDynamicsAsync(SelectedRow?[0].ToString() ?? "");
-            _managerService.ExportStatsToCsv(data, "export.csv");
-            MessageBox.Show("Сохранено в export.csv");
         }
     }
 }
